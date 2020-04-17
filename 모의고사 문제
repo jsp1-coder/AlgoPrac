@@ -1,0 +1,88 @@
+
+public class Solution2 {
+
+	public static void main(String[] args) {
+		// 주어진 정답
+		int[] answers = {2,4,3,2,3,5,3,1,4,1,
+        		3,2,4,2,3,4,2,2,5,5,5,1,1,3,4,4,2,2,4,4,3};
+        
+		// 각 학생이 답안을 작성하는 패턴 
+        int[] student1 = {1,2,3,4,5};
+        int[] student2 = {2,1,2,3,2,4,2,5};
+        int[] student3 = {3,3,1,1,2,2,4,4,5,5};
+
+        // 각 학생이 정답을 맞춘 갯수
+        int[] answerss = new int[3];
+        
+        int answer1 = 0;
+        int answer2 = 0;
+        int answer3 = 0;
+                
+        // 각 답안 패턴이 패턴길이만큼 반복되도록 변수 설정, % 연산자 이용
+        int i1 = 0;
+        for (int i = 0; i < answers.length; i++) {
+        	i1=i%student1.length;
+        	if (answers[i]==student1[i1]) {
+				answer1++;
+			}
+        }
+        
+        int i2 = 0;
+           for (int i = 0; i < answers.length; i++) {
+        	i2=i%student2.length;
+        	if (answers[i]==student2[i2]) {
+			  answer2++;	
+			}
+		}
+           int i3 = 0;
+           for (int i = 0; i < answers.length; i++) {
+        	   i3=i%student3.length;
+        	   if (answers[i]==student3[i3]) {
+        		   answer3++;	
+        	   }
+           }
+           
+        // 정답 갯수를 배열에 넣기.
+        answerss[0] = answer1;
+        answerss[1] = answer2;
+        answerss[2] = answer3;
+       
+        // 최댓값 구하기.
+        int max=0;
+        
+        for (int i = 0; i < answerss.length; i++) {
+			if (max<answerss[i]) {
+				max = answerss[i];
+			}
+        }
+        
+        // 최다 득점자 명수 구해서 최다 득점자 배열 answer 크기 만들기.
+        int no_win=0;
+        
+        for (int i = 0; i < answerss.length; i++) {
+			if (answerss[i] == max)
+				no_win++;
+		}
+        
+        int[] answer = new int[no_win];
+        int k=0;
+        
+        for (int i = 0; i < answerss.length; i++) {
+			if (answerss[i] == max)
+				{answer[k]=i+1;
+				k++;}
+        }
+        
+     	System.out.println(answer1);
+        System.out.println(answer2);
+        System.out.println(answer3);
+		
+        System.out.println(max);
+        System.out.println("--------------------------");
+        for (int i = 0; i < answer.length; i++) {
+        	System.out.println(answer[i]);
+			
+		}
+
+}
+}
