@@ -1,0 +1,33 @@
+public class Solution3 {
+
+	public static void main(String[] args) {
+		
+    // 주어진 String s 가 4자리 혹은 6자리이고, 전부 숫자로만 구성되었을 때 true를 반환하는 함수.
+    
+    // 주어진 문자열 s
+		String s = "222354";
+		
+		
+		System.out.println(String.valueOf(solution(s)));
+	
+		
+
+	}
+
+	private static boolean solution(String s) {
+		if (s.length()==4||s.length()==6) {
+			try {
+      // 문자열 s를 숫자로 변환하는 parseInt를 사용, 만약 문자열이 전부 숫자가 아니어서 변환이 안되면 exception이 발생할 것.
+      // 그 때는 false를 return하도록 코딩.
+      // 문자열은 최대 6자리이므로 Int 사용
+				Integer.parseInt(s);
+				return true;
+			} catch (Exception e) {
+				return false;
+			}
+		} else return false;
+		
+		
+	}
+
+}
